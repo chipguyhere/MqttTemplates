@@ -1,7 +1,9 @@
 # MqttTemplates
 
 This library for Arduino provides the foundation for creating simple sensor applications that report
-data to MQTT.  It's designed in the form of example sketches that securely report "hello world"
+data to secure MQTT.  You can edit the examples to use the transport of your choice.
+
+It's designed in the form of example sketches that securely report "hello world"
 messages to a public MQTT server, meant to be edited into your sketch that reports your valuable
 sensor data into your private MQTT server, securely if desired.
 
