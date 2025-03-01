@@ -43,3 +43,5 @@ can update your sketch code over the network, but it is disabled until you set a
 Simply setting a password in your sketch before uploading it over Serial/USB will enable the function.
 Enabling it the first time requires flashing the sketch over serial/USB, but from then
 on, the Arduino IDE can see and update the device over the network if selected as the "port".
+
+Despite the word "air" in the naming, Over-the-Air updates are supported for Ethernet-based devices as well as WiFi.
