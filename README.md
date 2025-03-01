@@ -75,6 +75,9 @@ To install this repository as a library into Arduino IDE, download it from GitHu
 a single folder (named MqttTemplates_main or similar)... place that single folder into your *libraries* folder which will
 automatically be created and exist below your Arduino documents folder after you install any library from within Arduino IDE.
 
+After the library is installed, these MQTT template examples will be recognized as new Examples that you can select from
+the menus in Arduino IDE.  Look under "Examples from Custom Libraries".
+
 # Arduino Over-The-Air functionality
 
 Each example also includes support for Arduino Over-The-Air update functionality, so you
