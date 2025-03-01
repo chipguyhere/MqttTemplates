@@ -10,7 +10,7 @@ to be edited to become your sketch that reports your valuable
 sensor data into your private MQTT server (securely if desired), or to another TCP/UDP/IP network service of your choice.
 
 The library provides five example sketches.  Simply compile and flash, providing WiFi credentials
-or (for the W5500 examples) a wired Ethernet connection.
+or a wired Ethernet connection.
 
 * M5Core - for the M5Stack BASIC device that has ESP32 and WiFi.
 * M5Core W5500 - uses Ethernet and assumes you have stacked the M5Core onto an Ethernet module.
