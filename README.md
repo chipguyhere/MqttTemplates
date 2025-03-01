@@ -53,7 +53,8 @@ server, and updating the MQTT topics of your choice.
 Arduino IDE is available as a free download for Win/Mac/Linux from https://arduino.cc
 
 Compiling for ESP32 microcontrollers requires that you have the ESP32 Arduino Core installed.
-Directions to install that are here: https://docs.espressif.com/projects/arduino-esp32/en/latest/installing.html
+Using the "Boards Manager" method to do this is the simplest and easiest.
+Directions to install the Core are here: https://docs.espressif.com/projects/arduino-esp32/en/latest/installing.html
 
 To compile these examples, you'll want to have one or more of the following libraries already installed.
 Use Arduino IDE's Library Manager to download and install these.
