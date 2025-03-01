@@ -1,7 +1,8 @@
 # MqttTemplates
 
 This library for Arduino provides the foundation for creating simple sensor applications that report
-data to secure MQTT.  You can edit the examples to use the transport of your choice.
+data to secure MQTT.  You can edit the examples to use the transport of your choice.  Most of the
+heavy lifting is done in included ".hpp" files, to keep the actual example sketches short.
 
 It's designed in the form of example sketches that securely report "hello world"
 messages to a public MQTT server, meant to be edited into your sketch that reports your valuable
@@ -21,6 +22,11 @@ or (for the W5500 examples) a wired Ethernet connection.
 These examples are designed for M5Stack products but using M5Stack is not necessary.  For example,
 the M5Core example will work on the basic ESP32 dev kit simply by removing the references
 to the M5Core's built-in LCD screen: set DEMO_ON_LCD_SCREEN to 0, or delete the relevant code.
+
+Note that to use the LCD screen on M5Core, you'll have to install the TFT_eSPI library (externally),
+and you will also have to copy one file (tft_setup.h, provided with example) into the TFT_eSPI library
+folder.  This file contains the hardware configuration for the M5's LCD hardware.
+The requirement to have you copy a setup file is a design decision by the authors of the TFT_eSPI library.
 
 # Basic example functionality
 
