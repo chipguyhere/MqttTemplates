@@ -68,12 +68,9 @@ DEMO_ON_LCD_SCREEN in the example sketch to 0.
 
 # Installing the Library
 
-This library is a private project hosted on GitHub that isn't indexed into Arduino IDE's library manager.  To
-install this library into Arduino IDE, simply download it from GitHub as a ZIP file, and then unzip it into your
-Arduino "libraries" folder (this will be in your documents directory).  The zip file will contain
-a single folder (named MqttTemplates_main or similar)... place it into your *libraries* folder which should already
-exist in your Arduino documents folder after installing any other library.
-
+To install this repository as a library into Arduino IDE, download it from GitHub as a ZIP file.  The ZIP file will contain
+a single folder (named MqttTemplates_main or similar)... place that single folder into your *libraries* folder which will
+automatically be created and exist below your Arduino documents folder after you install any library from within Arduino IDE.
 
 # Arduino Over-The-Air functionality
 
