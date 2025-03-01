@@ -10,7 +10,8 @@ Internet (the HiveMQ Public MQTT Broker).  It is meant to be edited to become yo
 sensor data, ideally over a secure connection into your private MQTT server using your own
 self-signed certificate.
 
-The library provides five example sketches.  Simply compile and flash, first editing the sketch to provide WiFi credentials, or
+The library provides five example sketches that can be called up through the Arduino IDE's "examples" menu
+(File - Examples - chipguy_MQTT_templates).  Simply compile and flash, first editing the sketch to provide WiFi credentials, or
 else you provide a wired Ethernet connection.
 
 * M5Core - for the M5Stack Basic Core device using WiFi.  This sketch will also run on the basic ESP32 Dev Kit (non-M5Stack).
@@ -43,28 +44,33 @@ Each example will start setup1() and loop1(), if they exist, and run the Arduino
 choice on a separate task thread, all while maintaining the persistent connection to the MQTT
 server, and updating the MQTT topics of your choice.
 
-# Library dependencies
+# Software and Library dependencies
+Arduino IDE is available as a free download for Win/Mac/Linux from https://arduino.cc
 
-To compile this, you'll want to have one or more of the following libraries already installed.
+Compiling for ESP32 microcontrollers requires that you have the ESP32 Arduino Core installed.
+Directions to install that are here: https://docs.espressif.com/projects/arduino-esp32/en/latest/installing.html
+
+To compile these examples, you'll want to have one or more of the following libraries already installed.
 Use Arduino IDE's Library Manager to download and install these.
 
-* *PubSubClient* (for communicating with MQTT servers over TCP)
-* *Adafruit NeoPixel* (to change the LED color on AtomS3, or attached to port of PoESP32)
+* *PubSubClient* (required by all examples for communicating with MQTT servers over TCP)
+* *Adafruit NeoPixel* (to change the LED color on AtomS3, or attached to accessory port of PoESP32)
 * *TFT_eSPI* (for the M5Stack Basic Core, to drive its LCD screen)
 
-To use the LCD screen on M5Core, you'll have to install the TFT_eSPI library (externally),
-and you will also have to copy one file (tft_setup.h, provided with example) into the TFT_eSPI library
-folder.  This file contains the hardware configuration for the M5's LCD hardware.
+To use the LCD screen on M5Core, in addition to installing TFT_eSPI,
+you will also have to copy one file (tft_setup.h, provided in M5Core example folder) into the TFT_eSPI library
+folder, overwriting any existing file by the same name.  This file contains the hardware configuration for the M5's LCD hardware.
 The requirement to have you copy a setup file is a design decision by the authors of the TFT_eSPI library.
-If you aren't using an LCD screen, the dependency on TFT_eSPI disappears if you change
+If you aren't using an LCD screen, the dependency on the TFT_eSPI library disappears if you change
 DEMO_ON_LCD_SCREEN in the example sketch to 0.
 
 # Arduino Over-The-Air functionality
 
 Each example also includes support for Arduino Over-The-Air update functionality, so you
-can update your sketch code over the network, but it is disabled until you set a password.
+can flash new revisions of your sketch code over the network, but it is disabled until you set a password.
 Simply setting a password in your sketch before uploading it over Serial/USB will enable the function.
+Your ESP32 device will then advertise itself over the network as being able to accept Over-The-Air updates.
 Enabling it the first time requires flashing the sketch over serial/USB, but from then
 on, the Arduino IDE can see and update the device over the network if selected as the "port".
 
-Despite the word "air" in the naming, Over-the-Air updates are supported for Ethernet-based devices as well as WiFi.
+Despite the word "air" in the naming, Over-the-Air updates are supported for both Ethernet and WiFi devices.
