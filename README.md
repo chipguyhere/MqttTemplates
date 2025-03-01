@@ -32,4 +32,10 @@ Each example will start setup1() and loop1(), if they exist, and run the Arduino
 choice on a separate task thread, all while maintaining the persistent connection to the MQTT
 server, and updating the MQTT topics of your choice.
 
+# Arduino Over-The-Air functionality
 
+Each example also includes support for Arduino Over-The-Air update functionality, so you
+can update your sketch code over the network, but it is disabled until you set a password.
+Simply setting a password in your sketch before uploading it over Serial/USB will enable the function.
+Enabling it the first time requires flashing the sketch over serial/USB, but from then
+on, the Arduino IDE can see and update the device over the network if selected as the "port".
