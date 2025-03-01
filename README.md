@@ -5,17 +5,17 @@ data via secure connection to a public MQTT server.  It's meant for you to edit 
 the transport and/or private MQTT server of your choice.
 
 What's presented here is a series of example Arduino sketches that securely report "hello world"
-messages, with a simple counting number (1...2...3...etc.) to a public MQTT server already on the
-Internet (the HiveMQ Public MQTT Broker), meant to be edited to become your sketch that reports your
+messages, with the device MAC address and a simple counting number (1... 2... 3... etc.), to a public MQTT server already on the
+Internet (the HiveMQ Public MQTT Broker).  It is meant to be edited to become your sketch that reports your
 sensor data, ideally over a secure connection into your private MQTT server using your own
 self-signed certificate.
 
-The library provides five example sketches.  Simply compile and flash, providing WiFi credentials
-or a wired Ethernet connection.
+The library provides five example sketches.  Simply compile and flash, first editing the sketch to provide WiFi credentials, or
+else you provide a wired Ethernet connection.
 
 * M5Core - for the M5Stack Basic Core device using WiFi.  This sketch will also run on the basic ESP32 Dev Kit (non-M5Stack).
-* M5Core W5500 - uses Ethernet and assumes you have stacked the M5Core onto an Ethernet module (W5500 chipset).
-* AtomS3 - for the M5Stack AtomS3 device that has WiFi and an LED as output.  Will also run on ESP32S3 Dev Kit (non-M5Stack)
+* M5Core W5500 - uses Ethernet and assumes you have stacked the Core onto an M5Stack Ethernet base with the W5500 Ethernet chipset.
+* AtomS3 - for the M5Stack AtomS3 device that has WiFi and a color status LED as output.  This low-cost device is ideal for headless WiFi sensors that don't need a screen.  This will also run on ESP32S3 Dev Kit (non-M5Stack)
 * Atom W5500 - for the M5Stack Atom device, uses Ethernet, assumes you have stacked it onto the AtomPOE base.
 * PoESP32 - for the M5Stack PoESP32 Ethernet device.  This is sold by M5Stack as a PoE-powered Ethernet-to-UART adapter,
   but under the hood, it's just a regular ESP32 device that can be reprogrammed.  It has no USB port, flashing this device requires opening it and
