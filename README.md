@@ -1,12 +1,13 @@
 # MqttTemplates
 
 This library for Arduino provides the foundation for creating simple sensor applications that report
-data to secure MQTT.  You can edit the examples to use the transport of your choice.  Most of the
+data to a secure MQTT connection.  You can edit the examples to use the transport of your choice.  Most of the
 heavy lifting is done in included ".hpp" files, to keep the actual example sketches short.
 
 It's designed in the form of example sketches that securely report "hello world"
-messages to a public MQTT server, meant to be edited into your sketch that reports your valuable
-sensor data into your private MQTT server, securely if desired.
+messages to a public MQTT server already on the Internet (the HiveMQ Public MQTT Broker), meant
+to be edited to become your sketch that reports your valuable
+sensor data into your private MQTT server (securely if desired), or to another TCP/UDP/IP network service of your choice.
 
 The library provides five example sketches.  Simply compile and flash, providing WiFi credentials
 or (for the W5500 examples) a wired Ethernet connection.
