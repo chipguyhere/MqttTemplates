@@ -18,11 +18,12 @@ or a wired Ethernet connection.
 * Atom W5500 - for the M5Stack Atom device, uses Ethernet, assumes you have stacked it onto the AtomPOE base.
 * PoESP32 - for the M5Stack PoESP32 Ethernet device.  Flashing this device requires opening it and
   using a standard ESP32 USB-to-serial programming adapter.  (You can use Over-The-Air for subsequent updates
-  so opening the device is only required for the initial programming)
+  over Ethernet, so opening the device is only required for the initial programming)
 
-These examples are designed for M5Stack products but using M5Stack is not necessary.  For example,
+These examples are designed for M5Stack products containing ESP32, but using M5Stack is not necessary.  For example,
 the M5Core example will work on the basic ESP32 dev kit simply by removing the references
-to the M5Core's built-in LCD screen: set DEMO_ON_LCD_SCREEN to 0, or delete the relevant code.
+to the M5Core's built-in LCD screen: set DEMO_ON_LCD_SCREEN to 0, or delete the relevant code,
+or even leave it in there (the example will still run even if no physical LCD screen is present).
 
 Note that to use the LCD screen on M5Core, you'll have to install the TFT_eSPI library (externally),
 and you will also have to copy one file (tft_setup.h, provided with example) into the TFT_eSPI library
@@ -42,6 +43,15 @@ engaged, and will hard reset the device.
 Each example will start setup1() and loop1(), if they exist, and run the Arduino sketch of your
 choice on a separate task thread, all while maintaining the persistent connection to the MQTT
 server, and updating the MQTT topics of your choice.
+
+# Library dependencies
+
+To compile this, you'll want to have one or more of the following libraries already installed.
+Use Arduino IDE's Library Manager to download and install these.
+
+* *PubSubClient* (for communicating with MQTT servers over TCP)
+* *Adafruit NeoPixel* (to change the LED color on AtomS3, or attached to port of PoESP32)
+* *TFT_eSPI* (for the M5Stack Basic Core, to drive its LCD screen)
 
 # Arduino Over-The-Air functionality
 
