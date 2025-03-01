@@ -1,34 +1,33 @@
 # MqttTemplates
 
 This library for Arduino provides the foundation for creating simple sensor applications that report
-data to a secure MQTT connection.  You can edit the examples to use the transport of your choice.  Most of the
-heavy lifting is done in included ".hpp" files, to keep the actual example sketches short.
+data via secure connection to a public MQTT server.  It's meant for you to edit the examples to use
+the transport and/or private MQTT server of your choice.
 
-It's designed in the form of example sketches that securely report "hello world"
-messages to a public MQTT server already on the Internet (the HiveMQ Public MQTT Broker), meant
-to be edited to become your sketch that reports your valuable
-sensor data into your private MQTT server (securely if desired), or to another TCP/UDP/IP network service of your choice.
+What's presented here is a series of example Arduino sketches that securely report "hello world"
+messages, with a simple counting number (1...2...3...etc.) to a public MQTT server already on the
+Internet (the HiveMQ Public MQTT Broker), meant to be edited to become your sketch that reports your
+sensor data, ideally over a secure connection into your private MQTT server using your own
+self-signed certificate.
 
 The library provides five example sketches.  Simply compile and flash, providing WiFi credentials
 or a wired Ethernet connection.
 
-* M5Core - for the M5Stack BASIC device that has ESP32 and WiFi.
-* M5Core W5500 - uses Ethernet and assumes you have stacked the M5Core onto an Ethernet module.
-* AtomS3 - for the M5Stack AtomS3 device that has WiFi and an LED as output.
+* M5Core - for the M5Stack Basic Core device using WiFi.  This sketch will also run on the basic ESP32 Dev Kit (non-M5Stack).
+* M5Core W5500 - uses Ethernet and assumes you have stacked the M5Core onto an Ethernet module (W5500 chipset).
+* AtomS3 - for the M5Stack AtomS3 device that has WiFi and an LED as output.  Will also run on ESP32S3 Dev Kit (non-M5Stack)
 * Atom W5500 - for the M5Stack Atom device, uses Ethernet, assumes you have stacked it onto the AtomPOE base.
-* PoESP32 - for the M5Stack PoESP32 Ethernet device.  Flashing this device requires opening it and
-  using a standard ESP32 USB-to-serial programming adapter.  (You can use Over-The-Air for subsequent updates
+* PoESP32 - for the M5Stack PoESP32 Ethernet device.  This is sold by M5Stack as a PoE-powered Ethernet-to-UART adapter,
+  but under the hood, it's just a regular ESP32 device that can be reprogrammed.  It has no USB port, flashing this device requires opening it and
+  using a standard 6-pin ESP32 USB-to-serial programming adapter.  (You can use Over-The-Air for subsequent updates
   over Ethernet, so opening the device is only required for the initial programming)
 
-These examples are designed for M5Stack products containing ESP32, but using M5Stack is not necessary.  For example,
+These examples are designed for M5Stack's ESP32 products, but using M5Stack products 
+is not actually necessary.  For example,
 the M5Core example will work on the basic ESP32 dev kit simply by removing the references
 to the M5Core's built-in LCD screen: set DEMO_ON_LCD_SCREEN to 0, or delete the relevant code,
-or even leave it in there (the example will still run even if no physical LCD screen is present).
-
-Note that to use the LCD screen on M5Core, you'll have to install the TFT_eSPI library (externally),
-and you will also have to copy one file (tft_setup.h, provided with example) into the TFT_eSPI library
-folder.  This file contains the hardware configuration for the M5's LCD hardware.
-The requirement to have you copy a setup file is a design decision by the authors of the TFT_eSPI library.
+or even leave it in there (the example will still run and produce serial port output,
+and doesn't care that no physical LCD screen is present).
 
 # Basic example functionality
 
@@ -52,6 +51,13 @@ Use Arduino IDE's Library Manager to download and install these.
 * *PubSubClient* (for communicating with MQTT servers over TCP)
 * *Adafruit NeoPixel* (to change the LED color on AtomS3, or attached to port of PoESP32)
 * *TFT_eSPI* (for the M5Stack Basic Core, to drive its LCD screen)
+
+To use the LCD screen on M5Core, you'll have to install the TFT_eSPI library (externally),
+and you will also have to copy one file (tft_setup.h, provided with example) into the TFT_eSPI library
+folder.  This file contains the hardware configuration for the M5's LCD hardware.
+The requirement to have you copy a setup file is a design decision by the authors of the TFT_eSPI library.
+If you aren't using an LCD screen, the dependency on TFT_eSPI disappears if you change
+DEMO_ON_LCD_SCREEN in the example sketch to 0.
 
 # Arduino Over-The-Air functionality
 
