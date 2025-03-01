@@ -60,10 +60,10 @@ Use Arduino IDE's Library Manager to download and install these.
 * *TFT_eSPI* (for the M5Stack Basic Core, to drive its LCD screen)
 
 To use the LCD screen on M5Core, in addition to installing TFT_eSPI,
-you will also have to copy one file (tft_setup.h, provided in M5Core example folder) into the TFT_eSPI library
-folder, overwriting any existing file by the same name.  This file contains the hardware configuration for the M5's LCD hardware.
+you will also have to copy one file (tft_setup.h, provided by me in *this* library in the M5Core example folder) into TFT_eSPI's library
+folder, overwriting any existing file by the same name.  This file contains the hardware configuration for the Core's LCD display.
 The requirement to have you copy a setup file is a design decision by the authors of the TFT_eSPI library.
-If you aren't using an LCD screen, the dependency on the TFT_eSPI library disappears if you change
+If you aren't using any LCD screen, the dependency on the TFT_eSPI library disappears if you change
 DEMO_ON_LCD_SCREEN in the example sketch to 0.
 
 # Installing the Library
