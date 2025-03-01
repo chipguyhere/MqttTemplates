@@ -14,7 +14,9 @@ or (for the W5500 examples) a wired Ethernet connection.
 * M5Core W5500 - uses Ethernet and assumes you have stacked the M5Core onto an Ethernet module.
 * AtomS3 - for the M5Stack AtomS3 device that has WiFi and an LED as output.
 * Atom W5500 - for the M5Stack Atom device, uses Ethernet, assumes you have stacked it onto the AtomPOE base.
-* PoESP32 - for the M5Stack PoESP32 Ethernet device.  Flashing this device requires opening it and using a standard ESP32 USB-to-serial programming adapter.
+* PoESP32 - for the M5Stack PoESP32 Ethernet device.  Flashing this device requires opening it and
+  using a standard ESP32 USB-to-serial programming adapter.  (You can use Over-The-Air for subsequent updates
+  so opening the device is only required for the initial programming)
 
 These examples are designed for M5Stack products but using M5Stack is not necessary.  For example,
 the M5Core example will work on the basic ESP32 dev kit simply by removing the references
