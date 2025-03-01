@@ -10,7 +10,10 @@ Internet (the HiveMQ Public MQTT Broker), so you can test the functionality with
 
 These examples are meant to be edited to become your sketch that reports your
 sensor data, ideally over a secure connection into your private MQTT server (whether in-cloud or on-premise),
-using your own self-signed certificate.
+using your own self-signed certificate.  Two-way communication is permitted (either by calling subscribe() on an MQTT topic,
+or you can open a listening TCP or UDP socket), in case you want to allow something else to control or operate
+your device.  The "last will and testament" feature of MQTT is also demonstrated in these examples, in case you want the MQTT
+server to be able to report a loss of contact with your device.
 
 The library provides five example sketches that can be called up through the Arduino IDE's "examples" menu
 (File - Examples - chipguy_MQTT_templates).  Simply compile and flash, first editing the sketch to provide WiFi credentials, or
