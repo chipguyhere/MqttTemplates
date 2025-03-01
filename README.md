@@ -1,14 +1,16 @@
 # MqttTemplates
 
-This library for Arduino provides the foundation for creating simple sensor applications that report
-data via secure connection to a public MQTT server.  It's meant for you to edit the examples to use
-the transport and/or private MQTT server of your choice.
+This library for Arduino provides the foundation for creating sensor applications that report
+data via secure connection to a public MQTT server.
 
 What's presented here is a series of example Arduino sketches that securely report "hello world"
-messages, with the device MAC address and a simple counting number (1... 2... 3... etc.), to a public MQTT server already on the
-Internet (the HiveMQ Public MQTT Broker).  It is meant to be edited to become your sketch that reports your
-sensor data, ideally over a secure connection into your private MQTT server using your own
-self-signed certificate.
+messages, with the device MAC address and a simple counting number (1... 2... 3... etc.).
+Reporting is made to a public MQTT server already on the
+Internet (the HiveMQ Public MQTT Broker), so you can test the functionality without needing to set up your own server.
+
+These examples are meant to be edited to become your sketch that reports your
+sensor data, ideally over a secure connection into your private MQTT server (whether in-cloud or on-premise),
+using your own self-signed certificate.
 
 The library provides five example sketches that can be called up through the Arduino IDE's "examples" menu
 (File - Examples - chipguy_MQTT_templates).  Simply compile and flash, first editing the sketch to provide WiFi credentials, or
@@ -63,6 +65,15 @@ folder, overwriting any existing file by the same name.  This file contains the 
 The requirement to have you copy a setup file is a design decision by the authors of the TFT_eSPI library.
 If you aren't using an LCD screen, the dependency on the TFT_eSPI library disappears if you change
 DEMO_ON_LCD_SCREEN in the example sketch to 0.
+
+# Installing the Library
+
+This library is a private project hosted on GitHub that isn't indexed into Arduino IDE's library manager.  To
+install this library into Arduino IDE, simply download it from GitHub as a ZIP file, and then unzip it into your
+Arduino "libraries" folder (this will be in your documents directory).  The zip file will contain
+a single folder (named MqttTemplates_main or similar)... place it into your *libraries* folder which should already
+exist in your Arduino documents folder after installing any other library.
+
 
 # Arduino Over-The-Air functionality
 
