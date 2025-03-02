@@ -347,8 +347,10 @@ void loop() {
     if (l > 20000 || last_reconnect_attempt==0) {
       last_reconnect_attempt = l;
       while (!mqttClient.connected()) {
+        char lwt[100];
+        strlcpy(lwt,withmac(last_will_topic),sizeof(lwt));
         // try to connect, which will block to return true if connection succeeded, false if failed.
-        if (mqttClient.connect(withmac(mqtt_clientid), mqtt_user, mqtt_password, last_will_topic, 1, true, "offline")) {
+        if (mqttClient.connect(withmac(mqtt_clientid), mqtt_user, mqtt_password, lwt, 1, true, "offline")) {
           feed_watchdog(); // feed watchdog timer
           if (watchdog_subscribe_topic != NULL) mqttClient.subscribe(withmac(watchdog_subscribe_topic));
           mqttClient.publish(withmac(last_will_topic), device_status_to_report, true);
