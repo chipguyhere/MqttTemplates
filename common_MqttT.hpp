@@ -43,7 +43,7 @@ extern const char* mqtt_password;
 // Don't like?  then just feed the watchdog some other way, or turn it off.
 // Note PubSubClient also pings server (within MQTT protocol) and disconnects on a
 // 15 second timeout, which we would see.
-char *watchdog_subscribe_topic = "unix_time/unix_time";
+const char *watchdog_subscribe_topic = "unix_time/unix_time";
 
 // SSL/TLS Certificate for MQTT Server (moved to ca_cw_cert.cpp)
 extern const char* ca_cert;
@@ -53,7 +53,7 @@ PubSubClient mqttClient(espClient);
 
 bool eth_connected=false;
 
-char *device_status_to_report = "online";
+const char *device_status_to_report = "online";
 bool reportable_initialization_failure=false;
 
 void setup1() __attribute__((weak));
