@@ -31,8 +31,8 @@ const char* mqtt_password = "anypass";
 
 // Over-The-Air (OTA) update support.
 // For security, OTA support will not start while password is still blank.
-char* ARDUINO_OTA_HOSTNAME = "MY_ARDUINO_CLIENT_%s";   // Hostname as it will appear in Arduino IDE.  %s gets replaced with MAC address
-char* ARDUINO_OTA_PASSWORD = "";                 
+const char* ARDUINO_OTA_HOSTNAME = "MY_ARDUINO_CLIENT_%s";   // Hostname as it will appear in Arduino IDE.  %s gets replaced with MAC address
+const char* ARDUINO_OTA_PASSWORD = "";                 
 
 // CA certificate for the MQTT server, to support secure connections.
 // This certificate was one I generated and probably won't work for you.
