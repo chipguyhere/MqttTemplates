@@ -14,8 +14,8 @@
 #include <WiFiClientSecure.h>
 #include <esp_task_wdt.h> // Watchdog timer
 
-extern char* ARDUINO_OTA_HOSTNAME;
-extern char* ARDUINO_OTA_PASSWORD;
+extern const char* ARDUINO_OTA_HOSTNAME;
+extern const char* ARDUINO_OTA_PASSWORD;
 
 // WPA2 / WPA2 Enterprise credentials
 extern bool using_WPA2_Enterprise;
