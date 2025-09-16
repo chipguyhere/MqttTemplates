@@ -196,6 +196,10 @@ on a green LED (assumed to be part of the device or connected) or change the LCD
 - **Yellow** - Network connected, MQTT connecting
 - **Green** - MQTT connected and operational
 
+**How Status is Displayed:**
+- **M5Stack devices**: Uses built-in LED (AtomS3) or LCD screen (M5Core)
+- **Generic ESP32/ESP32S3**: Status color is available in the `status_pixel_color` variable that your code can read and display however you choose (external LED, serial output, etc.)
+
 If the example finds itself unable to update the MQTT server, the ESP32 hardware watchdog timer is
 engaged, and will hard reset the device.
 
@@ -218,8 +222,13 @@ Use Arduino IDE's Library Manager to download and install these.
 * *Adafruit NeoPixel* (to change the LED color on AtomS3, or attached to accessory port of PoESP32)
 * *TFT_eSPI* (for the M5Stack Basic Core, to drive its LCD screen)
 
+If using generic ESP32 or ESP32S3 boards that don't have NeoPixel or LCD screens, you have the option
+of commenting out references to eliminate the dependencies and free up the relevant GPIO pins,
+or including them anyway and relying on knowing these libraries (of an output-only nature) won't try to detect or
+complain if the physical hardware isn't present.
+
 To use the LCD screen on M5Core, in addition to installing TFT_eSPI,
-you will also have to copy one file (tft_setup.h, provided by me in *this* library in the M5Core example folder) into TFT_eSPI's library
+you will also need to copy one file (tft_setup.h, provided by me in *this* library in the M5Core example folder) into TFT_eSPI's library
 folder, overwriting any existing file by the same name. This file contains the hardware configuration for the Core's LCD display.
 The requirement to have you copy a setup file is a design decision by the authors of the TFT_eSPI library.
 If you aren't using any LCD screen, the dependency on the TFT_eSPI library disappears if you change
@@ -237,13 +246,11 @@ the menus in Arduino IDE. Look under "Examples from Custom Libraries".
 # Arduino Over-The-Air Functionality
 
 Each example also includes support for Arduino Over-The-Air update functionality, so you
-can flash new revisions of your sketch code over the network, but it is disabled until you set a password.
+can flash new revisions of your sketch code over the WiFi or Ethernet, but it is disabled until you set a password.
 Simply setting a password in your sketch before uploading it over Serial/USB will enable the function.
 Your ESP32 device will then advertise itself over the network as being able to accept Over-The-Air updates.
 Enabling it the first time requires flashing the sketch over serial/USB, but from then
 on, the Arduino IDE can see and update the device over the network if selected as the "port".
-
-Despite the word "air" in the naming, Over-the-Air updates are supported for both Ethernet and WiFi devices.
 
 ## Troubleshooting
 
