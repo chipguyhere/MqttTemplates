@@ -1,6 +1,10 @@
-# Advanced Multithreading Guide for Power Users and AI
+# Advanced Implementation Guide for Power Users and AI
 
 > **Note**: This document provides detailed technical guidance on ESP32 dual-core programming and thread synchronization. It's intended for experienced developers and AI assistants helping with complex implementations. For basic usage, see the main README.md.
+
+
+## Updating the MQTT server
+A project that sends updates to an MQTT server should do so at a "just right" frequency: not too fast, and not too slow.  Values should not be updated more than once every few seconds unless there is some compelling reason to justify a resource cost for the higher resolution.  On the other hand, values should not be updated any less frequently than about 10 seconds, as there is value to subscribers knowing that the data is still current and that the sensor is still reporting.
 
 ## Threading Architecture and Best Practices
 
@@ -18,7 +22,7 @@ If your network connection becomes unstable or drops entirely, a single `publish
 
 ### Thread Functions Explained
 
-#### connectedLoop() - Main Thread (Core 0)
+#### connectedLoop() - Main Thread
 - Runs on the primary networking thread
 - Handles MQTT publishing and sensor data collection
 - **Can and will block** during network operations
@@ -28,7 +32,7 @@ If your network connection becomes unstable or drops entirely, a single `publish
   - Handling periodic tasks
   - Network-dependent operations
 
-#### setup1() - UI Thread Setup (Core 1) 
+#### setup1() - UI Thread Setup
 - Runs once on the second core during startup
 - Executes concurrently with main networking setup
 - Use for:
@@ -46,6 +50,11 @@ If your network connection becomes unstable or drops entirely, a single `publish
   - Button handling and user input
   - Status indicators (LEDs, displays)
   - Time-critical background tasks
+
+Under no circumstances (except by user request) should a project that includes any of the *_Mqtt.hpp files from this library implement
+their own setup() and loop() in the .ino file, as these functions are implemented by way of the .hpp inclusion.  This is an architectural decision for the way
+this project works -- the intention is that the library can advance and improve the methodology for connecting to an MQTT server, while
+the sketch itself deals only with the data collection and user interface, and treats a "good MQTT connection" as a black box.
 
 ## Thread Safety Considerations
 
