@@ -34,7 +34,7 @@
 //    connectedLoop() should acquire sensor data and publish it.
 
 #ifndef ARDUINO_M5STACK_ATOMS3
-#error AtomS3_Mqtt.hpp is designed for the M5Stack AtomS3 device, which doesn't seem to be selected as the build target.
+#error AtomS3_Mqtt.hpp is designed for the M5Stack AtomS3 device, which does not seem to be selected as the build target.
 #endif
 
 
