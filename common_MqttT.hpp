@@ -158,7 +158,7 @@ void setup_wifi() {
 
   int timeoutcounter=30;
   auto wfs = WiFi.status();
-  static char* wfs_statuses[] = {"idle","no ssid","scanned","connected","conn fail","conn lost","disconn"};
+  static const char* wfs_statuses[] = {"idle","no ssid","scanned","connected","conn fail","conn lost","disconn"};
 	// Serial.print("WiFi status is: ");
 	// ln(wfs_statuses[wfs]);
 
