@@ -10,6 +10,20 @@
 // USB CDC on boot: Enable
 // Download trouble: try Upload speed 460800
 
+// CRITICAL: DO NOT IMPLEMENT setup() AND loop() IN YOUR .ino FILE!
+// This library provides its own setup() and loop() functions via common_MqttT.hpp.
+// Instead, implement these functions in your .ino file:
+//   - setup1() - optional initialization for UI thread (called once)
+//   - loop1() - optional UI loop running on separate core/thread
+//   - connectedLoop() - mandatory function called when MQTT is connected
+//
+// ARCHITECTURE PATTERN:
+// 1. Include this header in your .ino file: #include "AtomS3_Mqtt.hpp"
+// 2. Define configuration variables (WiFi credentials, MQTT settings, etc.)
+// 3. Implement connectedLoop() for your main application logic
+// 4. Optionally implement setup1() and loop1() for UI on second thread
+// 5. DO NOT implement setup() or loop() - the library handles these!
+
 // How to use from another sketch:
 // 1. Create your sketch but delete setup() and loop(), I'm defining them.
 // 2. Create your own AtomS3_Mqtt.cpp that includes this file (e.g. #include "../AtomS3_MQTT_Template/AtomS3_Mqtt.hpp")
