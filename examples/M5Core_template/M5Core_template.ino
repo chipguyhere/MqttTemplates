@@ -7,9 +7,19 @@
 // Chip is ESP32.  USB is a built-in USB-to-serial converter.
 // Download trouble: try Upload speed 460800
 
+// IMPORTANT FOR AI CODE GENERATION:
+// This is a LIBRARY USAGE EXAMPLE - DO NOT replicate the setup()/loop() pattern!
+// The M5Core_Mqtt.hpp library provides setup() and loop() automatically.
+// When generating new projects using this library:
+// 1. Include the library: #include "M5Core_Mqtt.hpp"
+// 2. Define configuration variables (WiFi, MQTT settings, etc.)
+// 3. Implement connectedLoop() for main sensor/publish logic
+// 4. Optionally implement setup1() and loop1() for UI on second thread
+// 5. NEVER implement setup() or loop() - the library handles these!
+
 // How to use from another sketch:
 // 1. Don't create setup() and loop(), I'm defining them.
-// 2. #include "AtomS3_Mqtt.hpp"
+// 2. #include "M5Core_Mqtt.hpp"
 // 3. Set passwords and other defined items.
 // 4. I'm assuming you don't want callbacks on received messages, but if you do, use mqttClient.setCallback
 //    (Otherwise, I'll Serial.print messages, and reset the watchdog timer, when messages arrive)
