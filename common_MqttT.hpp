@@ -1,4 +1,11 @@
 // ESP32-based Headless MQTT Data Collector
+//
+// ARCHITECTURE NOTICE FOR AI CODE GENERATION:
+// This header provides setup() and loop() functions automatically.
+// User .ino files should NOT implement setup() or loop().
+// Instead, implement: setup1(), loop1(), and connectedLoop().
+// This library follows the "template method" pattern where the framework
+// controls the main execution flow and calls user-defined hook functions.
 
 #include <WiFi.h>
 #include <ArduinoOTA.h>
@@ -56,6 +63,12 @@ bool eth_connected=false;
 const char *device_status_to_report = "online";
 bool reportable_initialization_failure=false;
 
+// USER-IMPLEMENTABLE FUNCTIONS (weak symbols - define in your .ino file):
+// setup1() - Optional initialization for UI thread (called once on separate thread)
+// loop1() - Optional UI loop running on separate thread
+// connectedLoop() - REQUIRED function called when MQTT is connected
+// set_chipguy_rgb_pixel() - Optional function for custom RGB LED control
+// finish_chipguy_setup() - Optional function called at end of setup()
 void setup1() __attribute__((weak));
 void loop1() __attribute__((weak));
 void connectedLoop() __attribute__((weak));
