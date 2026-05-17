@@ -1,3 +1,7 @@
+***Update May 2026 - this project is the predecessor for a newer project of mine called NetClient.
+It adds many more features (such as networking in its own task) and is much easier to work with.
+Using it instead is recommended for new projects***
+
 # MqttTemplates
 
 This library for Arduino provides the foundation for creating sensor applications that report
